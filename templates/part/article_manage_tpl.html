@@ -1,0 +1,29 @@
+<div>
+  <div class="uk-card uk-card-default">
+    
+    <!-- Содержимое статьи -->
+    <div class="uk-card-body">
+         <center>
+         <img src='{{img}}' style="height:500px"/>
+      </center>
+        
+      <!-- Заголовок -->
+      <h3 class="uk-card-title uk-margin-remove-bottom">{{title}}</h3>
+      <!-- Дата и время создания -->
+      <p class="uk-text-meta uk-margin-bottom">
+      	<span uk-icon="calendar"></span> {{created}}
+      </p>
+
+      {{preview}}
+			
+      <p class="uk-margin-top">
+      	<a href="/edit_article.php?id={{id}}" class="uk-button uk-button-default" style="float: left;">
+      	  Редактировать  <span uk-icon="pencil"></span>
+      	</a>
+      	<a href="/delete_article.php?id={{id}}" class="uk-button uk-button-danger" style="float: right;">
+      	  Удалить  <span uk-icon="trash"></span>
+      	</a>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Вход</title>
+
+	<link rel="stylesheet" href="/assets/css/uikit.min.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="shortcut icon"  href="/assets/img/logo.png">
+	
+</head>
+
+<body class="uk-background-muted uk">
+	<!--НАЧАЛО: Шапка сайта-->
+	<header class="uk-sticky uk-light" style="background-color: #80dbca;">
+		<div class="uk-container uk-container-small">
+			<!--НАЧАЛО: Панель навигации-->
+			<nav class="uk-navbar">
+				<!--НАЧАЛО: Логотип-->
+				<div class="uk-navbar-left">
+					<a href="#" class="uk-link uk-light uk-logo">
+						<img src="/assets/img/logo.png" class="head-logo" uk-img style="margin-right: -15px;"> MyLib
+					</a>
+				</div>
+				<!--КОНЕЦ: Логотип-->
+
+			</nav>
+			<!--КОНЕЦ: Панель навигации-->
+		</div>
+	</header>
+	<!--КОНЕЦ: Шапка сайта-->
+
+	<!--НАЧАЛО: Главное содержимое-->
+	<main class="uk-padding uk-padding-remove-horizontal">
+		<div class="uk-container uk-container-small">
+
+			<h2>Вход</h2>
+			<hr style="border: 1px solid #80dbca;">
+		
+			<!--НАЧАЛО: Сетка статей в 2 столбца-->
+			<div>
+                <form method="POST" id="feedBackForm">
+                    <div class="uk-margin">
+                        
+                        <input class="uk-input" type="text" name="login" value="" placeholder="Логин" style="width:99%" id="log">
+                    </div>
+                    <div class="uk-margin">
+                        
+					  <div><input class="uk-input" type="password" name="password" value="" placeholder="Пароль" id="pass" style="width:99%" >
+						<button id="btn_change" style="background: none; margin-left: -40px;border:none"><span style="display: none;background:none" id="icon_of_view_1" uk-icon="unlock" ></span><span id="icon_of_view_2" uk-icon="lock"></span></button>
+					  </div>
+                    </div>
+                    
+                    <div class="g-recaptcha" data-sitekey="6LeYE8kkAAAAAPbyvJqZjctNupKOH7wjC052_WCi"></div>
+                    <div class="text-danger" id="recaptchaError"></div>
+					<p class="uk-text-danger">{{ ans }}</p>
+                    <div class="uk-margin">
+                        <input type="submit" value="Войти" class="uk-button uk-button-primary" style="background-color: #80dbca;">
+						<a style="margin-left: 10px;text-decoration: none;" href="sign.php">Зарегистрироваться</a>
+                    </div>
+                </form>
+            </div>
+			<!--КОНЕЦ: Сетка статей-->
+
+		</div>
+	</main>
+	<!--КОНЕЦ - Главное содержимое-->
+
+	<script src="/assets/js/uikit.min.js"></script>
+	<script src="/assets/js/uikit-icons.min.js"></script>
+	<script src="/assets/js/login.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<!-- <script>
+const form = document.querySelector('#feedBackForm');
+
+form.onsubmit = function(evt) {
+    evt.preventDefault();
+
+	    const err = document.querySelector('#recaptchaError');
+	    const log = document.querySelector('#log');
+	    const pass = document.querySelector('#pass');
+	    const res = '?login='+log.value+'&password='+pass.value;
+	    err.innerHTML = '';
+	    window.location.href="/login.php"+res;
+	
+}
+
+	</script> -->
+</body>
+
+</html>

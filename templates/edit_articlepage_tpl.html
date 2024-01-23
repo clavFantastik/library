@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Редактирование {{title}}</title>
+
+	<link rel="stylesheet" href="/assets/css/uikit.min.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="shortcut icon"  href="/assets/img/logo.png">
+</head>
+
+<body>
+	<!--НАЧАЛО: Шапка сайта-->
+	<header class="uk-sticky uk-light" style="background-color: #80dbca;">
+		<div class="uk-container uk-container-small">
+			<!--НАЧАЛО: Панель навигации-->
+			<nav class="uk-navbar">
+				<!--НАЧАЛО: Логотип-->
+				<div class="uk-navbar-left">
+					<a href="/index.php" class="uk-link uk-light uk-logo">
+						<img src="/assets/img/logo.png" class="head-logo" uk-img style="margin-right: -15px;">  MyLib
+					</a>
+				</div>
+				<!--КОНЕЦ: Логотип-->
+
+				<!--НАЧАЛО: Панель поиска-->
+				<div class="uk-navbar-right">
+					<div class="uk-navbar-item">
+						<!--Форма поиска (отправляет данные скрипту index.php)-->
+						<a href="/admin.php" style="font-size: medium;margin-right: 10px;text-decoration: none;">{{user_name}} <span uk-icon="user" style="width: 12px"></span> </a>
+						|
+						<a href="/exit.php" style="font-size: medium;margin-left: 10px;text-decoration: none;" class="exit"> Выйти <span uk-icon="sign-out" style="width: 12px"></span></a>
+					</div>
+				</div>
+				<!--КОНЕЦ: Панель поиска-->
+			</nav>
+			<!--КОНЕЦ: Панель навигации-->
+		</div>
+	</header>
+	<!--КОНЕЦ: Шапка сайта-->
+
+	<!--НАЧАЛО: Навигация (хлебные крошки)-->
+	<div class="uk-container uk-container-small uk-padding uk-padding-remove-horizontal uk-padding-remove-bottom">
+		<ul class="uk-breadcrumb">
+			<li><a href="/index.php" class="uk-text-middle"><span uk-icon="home"></span> Главная</a></li>
+			<li><a href="/admin.php"><span uk-icon="user"></span> Профиль</a></li>
+			<li><a href="#"> <span uk-icon="pencil"></span> Редактирование "<span>{{title}}</span>"</a></li>
+		</ul>
+	</div>
+	<!--КОНЕЦ:  Навигация (хлебные крошки)-->
+
+	<!--НАЧАЛО: Главное содержимое-->
+	<main class="uk-padding uk-padding-remove-horizontal">
+		<div class="uk-container uk-container-small">
+
+			<form action="" method="POST">
+				<div class="uk-margin">
+					<label>Заголовок</label>
+					<input class="uk-input" type="text" name="title" value="{{title}}">
+				</div>
+				<div class="uk-margin">
+					<label>Написано:</label>
+					<input class="uk-input" type="text" name="created" value="{{created}}">
+				</div>
+				<div class="uk-margin">
+					<label>Кратко: (preview)</label><br>
+					<textarea name="preview" id="editor">{{preview}}</textarea>
+				</div>
+				<div class="uk-margin">
+					<label>Содержимое:</label><br>
+					<textarea name="content" id="editor">{{content}}</textarea>
+				</div>
+
+				<div class="uk-margin">
+					<label>Варианты реакций в книге:</label><br>
+					<input name="choice" id="choice" placeholder="Напишите варианты через ';'" style="width:100%; height: 50px" value="{{variants}}"/>
+				</div>
+				
+				<div class="uk-margin">
+					<input type="submit" value="Сохранить" class="uk-button uk-button-primary" style="background-color: #80dbca;">
+				</div>
+			</form>
+
+		</div>
+	</main>
+	<!--КОНЕЦ - Главное содержимое-->
+
+	<script src="/assets/js/uikit.min.js"></script>
+	<script src="/assets/js/uikit-icons.min.js"></script>
+	<script src="/assets/js/ckeditor.js"></script>
+	<script>
+		let textareas = document.querySelectorAll('textarea');
+		for(let textarea of textareas){
+			ClassicEditor.create(textarea);
+		}
+	</script>
+</body>
+
+</html>

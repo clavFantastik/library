@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Управление содержимым</title>
+
+	<link rel="stylesheet" href="/assets/css/uikit.min.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="shortcut icon"  href="/assets/img/logo.png">
+</head>
+
+<body class="uk-background-muted uk">
+	<!--НАЧАЛО: Шапка сайта-->
+	<header class="uk-sticky uk-light" style="background-color: #80dbca;">
+		<div class="uk-container uk-container-small">
+			<!--НАЧАЛО: Панель навигации-->
+			<nav class="uk-navbar">
+				<!--НАЧАЛО: Логотип-->
+				<div class="uk-navbar-left">
+					<a href="/index.php" class="uk-link uk-light uk-logo">
+						<img src="/assets/img/logo.png" class="head-logo" uk-img style="margin-right: -15px;"> MyLib
+					</a>
+				</div>
+				<!--КОНЕЦ: Логотип-->
+
+				<!--НАЧАЛО: Панель поиска-->
+				<div class="uk-navbar-right">
+					<div class="uk-navbar-item">
+						<!--Форма поиска (отправляет данные скрипту index.php)-->
+						<a href="/admin.php" style="font-size: medium;margin-right: 10px;text-decoration: none;">{{user_name}} <span uk-icon="user" style="width: 12px;"></span> </a>
+						|
+						<a href="/exit.php" style="font-size: medium;margin-left: 10px;text-decoration: none;" class="exit"> Выйти <span uk-icon="sign-out" style="width: 12px"></span></a>
+					</div>
+				</div>
+				<!--КОНЕЦ: Панель поиска-->
+			</nav>
+			<!--КОНЕЦ: Панель навигации-->
+		</div>
+	</header>
+	<!--КОНЕЦ: Шапка сайта-->
+
+	<!--НАЧАЛО: Навигация (хлебные крошки)-->
+	<div class="uk-container uk-container-small uk-padding uk-padding-remove-horizontal uk-padding-remove-bottom">
+		<ul class="uk-breadcrumb">
+			<li><a href="/index.php" class="uk-text-middle"><span uk-icon="home"></span> Главная</a></li>
+			<li><a href="#"><span uk-icon="user"></span> Профиль</a></li>
+		</ul>
+	</div>
+	<!--КОНЕЦ:  Навигация (хлебные крошки)-->
+
+	<!--НАЧАЛО: Главное содержимое-->
+	<main class="uk-padding uk-padding-remove-horizontal">
+		<div class="uk-container uk-container-small">
+
+			<h2>Ваши книги</h2>
+			<hr style="border: 1px solid #80dbca;">
+			
+
+			<a href="/create_article.php" class="uk-button uk-button-primary uk-margin-bottom" style="background-color: #80dbca;"><span
+					uk-icon="plus-circle" style="margin-right:5px;"></span> Создать книгу</a>
+
+					<div class="uk-navbar-right">
+						<div class="uk-navbar-item">
+							<!--Форма поиска (отправляет данные скрипту index.php)-->
+							<form action="admin.php" method="POST" style="border: 1px solid #80dbca;">
+								<input name="search" class="uk-input uk-form-width-medium" type="text" placeholder="Поиск" value="{{search}}" style="border: none; mix-blend-mode: multiply;">
+								<button style="background-color: white; border:none; mix-blend-mode: multiply;"><span uk-icon="search" style="margin-right: 10px; margin-left: -10px;"></span></button>
+							</form>
+						</div>
+					</div>
+			<!--НАЧАЛО: Сетка статей в 2 столбца-->
+			<div class="uk-grid-match uk-child-width-1-2" uk-grid>
+
+				{{articles}}
+
+			</div>
+			<!--КОНЕЦ: Сетка статей-->
+
+		</div>
+	</main>
+	<!--КОНЕЦ - Главное содержимое-->
+
+	<script src="/assets/js/uikit.min.js"></script>
+	<script src="/assets/js/uikit-icons.min.js"></script>
+</body>
+
+</html>

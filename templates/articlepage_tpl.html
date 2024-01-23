@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+
+	<link rel="stylesheet" href="/assets/css/uikit.min.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="shortcut icon"  href="/assets/img/logo.png">
+</head>
+
+<body>
+	<!--НАЧАЛО: Шапка сайта-->
+	<header class="uk-sticky uk-light" style="background-color: #80dbca;">
+		<div class="uk-container uk-container-small">
+			<!--НАЧАЛО: Панель навигации-->
+			<nav class="uk-navbar">
+				<!--НАЧАЛО: Логотип-->
+				<div class="uk-navbar-left">
+					<a href="/index.php" class="uk-link uk-light uk-logo">
+						<img src="/assets/img/logo.png" class="head-logo" uk-img style="margin-right: -15px;"> MyLib
+					</a>
+				</div>
+				<!--КОНЕЦ: Логотип-->
+
+				<!--НАЧАЛО: Панель поиска-->
+				<div class="uk-navbar-right">
+					<div class="uk-navbar-item">
+						<!--Форма поиска (отправляет данные скрипту index.php)-->
+						<a href="/admin.php" style="margin-right: 10px;text-decoration: none; font-size: medium;">{{user_name}} <span uk-icon="user" style="width: 12px"></span> </a>
+						|
+						<a href="/exit.php" style="margin-left: 10px;text-decoration: none; font-size: medium;" class="exit"> Выйти <span uk-icon="sign-out" style="width: 12px"></span></a>
+					</div>
+				</div>
+				<!--КОНЕЦ: Панель поиска-->
+			</nav>
+			<!--КОНЕЦ: Панель навигации-->
+		</div>
+	</header>
+	<!--КОНЕЦ: Шапка сайта-->
+
+	<!--НАЧАЛО: Навигация (хлебные крошки)-->
+	<div class="uk-container uk-container-small uk-padding uk-padding-remove-horizontal uk-padding-remove-bottom">
+		<ul class="uk-breadcrumb">
+			<li><a href="/index.php" class="uk-text-middle"><span uk-icon="home"></span> Главная</a></li>
+			<li><span>{{title}}</span></li>
+		</ul>
+	</div>
+	<!--КОНЕЦ:  Навигация (хлебные крошки)-->
+
+	<!--НАЧАЛО: Главное содержимое-->
+	<main class="uk-padding uk-padding-remove-horizontal">
+		<div class="uk-container uk-container-small">
+			<article class="uk-article">
+			   <center><img src='{{img}}' style="max-height:700px; min-height: 700px"/></center> 
+				<h1 class="uk-article-title">{{title}}</h1>
+				<p class="uk-article-meta"><span uk-icon="calendar"></span> Написано: {{created}} </p>
+				<p>
+					{{content}}
+				</p>
+				<br/>
+				<input value="{{variants}}" id="vari" hidden/>
+
+				<form action="update_vars.php" method="POST">
+					<input name="cur_user" value="{{user_name}}" hidden/>
+					<input name="res_of_vars" value="0" id="rov" hidden/>
+					<input name="res_of_id" value="{{id}}" hidden/>
+
+					<p id="content_of_var"></p>
+				</form>
+
+				<p id="movi" hidden>{{mov}}</p>
+			</article>
+		</div>
+	</main>
+
+	<main class="uk-padding uk-padding-remove-horizontal">
+		<div class="uk-container uk-container-small">
+			<article class="uk-article">
+				<h2>Комментарии</h2><br/>
+				<form method="POST">
+					
+						<textarea name="comm" style="height: 70px; width: 200px"></textarea><br/>
+						<button class="uk-button uk-button-primary uk-margin-bottom" style="background-color: #80dbca;"><span
+							uk-icon="comment" style="margin-right: 5px;"></span>  комментировать</button>
+					
+
+				</form>
+				
+				{{comments}}
+			</article>
+		</div>
+	</main>
+
+	<!--КОНЕЦ - Главное содержимое-->
+	<script src="/assets/js/article.js"></script>
+	<script src="/assets/js/uikit.min.js"></script>
+	<script src="/assets/js/uikit-icons.min.js"></script>
+</body>
+
+</html>

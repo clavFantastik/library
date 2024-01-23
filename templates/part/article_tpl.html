@@ -1,0 +1,33 @@
+<div>
+  <div class="uk-card uk-card-default" >
+    
+    <!-- Содержимое статьи -->
+    <div class="uk-card-body" >
+      <!-- Заголовок -->
+      
+      <a href="/celebr.php?id={{id}}&u_c={{by}}" style="float:right;height:50px; margin-bottom:-49px;z-index: 9;position:relative; background:none;border:none;"><img src="{{inout}}" style="float:right;height:50px;z-index: 9;position:relative;background-color:#80dbca; "/></a>
+
+      <center>
+         <img src='{{img}}' style="height:500px;width:350px"/>
+      </center>
+      
+      <h3 class="uk-card-title uk-margin-remove-bottom">{{title}}</h3>
+      <!-- Дата и время создания -->
+      <p class="uk-text-meta uk-margin-bottom">
+      	<span uk-icon="calendar"></span> {{created}}
+      </p>
+
+      {{preview}}
+			
+      <p class="uk-margin-top">
+      	<a href="/article.php?id={{id}}" class="uk-button uk-button-default">
+      	  Перейти <span uk-icon="arrow-right"></span>
+      	</a>
+      </p>
+      <p class="uk-text-meta uk-margin-top" style="float: right">
+          <span uk-icon="social"></span> Просмотрено: {{views}} 
+        </p>
+    </div>
+  </div>
+</div>
+

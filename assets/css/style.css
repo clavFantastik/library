@@ -1,0 +1,29 @@
+.head-logo{
+  height: 50px;
+}
+a.uk-logo{
+  color: #fff;
+}
+body{
+	min-height: 100vh;
+}
+.ck-editor__editable{
+	min-height: 200px;
+}
+
+#sort_btn {
+  height: 40px;
+  width:40px; 
+  background-color: none; 
+  border: 1px solid #80dbca;
+  transition: all 0.3s;
+}
+
+#sort_btn:hover {
+  background-color: #80dbca;
+  color: white;
+}
+
+
+
+
